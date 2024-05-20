@@ -1,0 +1,15 @@
+{
+	"alwaysActivate": true,
+	"name" : "mini",
+	"directory" : "",
+	"resourceOnly" : false,
+	"hmd_presence" :
+	[
+		"*.*"
+	]
+}
+
+
+
+
+
