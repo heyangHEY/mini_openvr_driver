@@ -1,22 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(MINI_OpenVR_Driver CXX)
 
-# set(CMAKE_TOOLCHAIN_FILE "D:/workspace/vcpkg/scripts/buildsystems/vcpkg.cmake")
-
 set(CMAKE_CXX_STANDARD 17)
 if(MSVC)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 endif(MSVC)
-
-# set(OPENVR_LIB_DIR ${CMAKE_SOURCE_DIR}/external/openvr/lib/win64 CACHE STRING "OpenVR .lib directory")
-# set(OPENVR_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/openvr/headers CACHE STRING "OpenVR include directory")
-# set(OPENVR_IMPLEMENTATION_DIR ${CMAKE_SOURCE_DIR}/external/openvr/bin/win64 CACHE STRING "OpenVR implementation (dll, so, dylib)")
-
-set(OPENVR_LIB_DIR C:/msys64/ucrt64/lib CACHE STRING "OpenVR .lib directory")
-set(OPENVR_INCLUDE_DIR C:/msys64/ucrt64/include CACHE STRING "OpenVR include directory")
-set(OPENVR_IMPLEMENTATION_DIR C:/msys64/ucrt64/bin CACHE STRING "OpenVR implementation (dll, so, dylib)")
-
-# find_library(OPENVR_LIB NAMES openvr_api)
 
 # Driver DLL
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -25,17 +13,10 @@ add_library(mini SHARED ${SOURCES};${HEADERS})
 target_compile_features(mini PRIVATE cxx_std_17)
 target_compile_definitions(mini PUBLIC -D_EXPORT)
 target_include_directories(mini PRIVATE include/)
-target_include_directories(mini PRIVATE ${OPENVR_INCLUDE_DIR})
-target_link_libraries(mini ${OPENVR_LIB_DIR}/libopenvr_api.a)
 set_target_properties(mini PROPERTIES PREFIX "driver_")
 
 # installer stuff
 install(TARGETS mini
-	DESTINATION mini/bin/win64
-	COMPONENT driver)
-
-install(FILES
-	${OPENVR_IMPLEMENTATION_DIR}/libopenvr_api.dll
 	DESTINATION mini/bin/win64
 	COMPONENT driver)
 
@@ -53,3 +34,26 @@ include(InstallRequiredSystemLibraries)
 install(PROGRAMS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}
 	DESTINATION mini/bin/win64
 	COMPONENT driver)
+
+# 定义要复制的系统库文件的路径
+set(SYSTEM_LIBS
+	"C:/Windows/System32/ntdll.dll"
+    "C:/Windows/System32/KERNEL32.DLL"
+    "C:/Windows/System32/KERNELBASE.dll"
+    "C:/Windows/System32/msvcrt.dll"
+    "C:/Windows/System32/ucrtbase.dll"
+    "C:/msys64/ucrt64/bin/libstdc++-6.dll"
+    "C:/msys64/ucrt64/bin/libgcc_s_seh-1.dll"
+    "C:/msys64/ucrt64/bin/libwinpthread-1.dll"
+    "C:/Windows/System32/advapi32.dll"
+    "C:/Windows/System32/sechost.dll"
+    "C:/Windows/System32/bcrypt.dll"
+    "C:/Windows/System32/RPCRT4.dll"
+    "C:/Windows/System32/CRYPTBASE.DLL"
+    "C:/Windows/System32/bcryptPrimitives.dll"
+)
+
+# 使用install命令将系统库文件复制到指定的安装目录
+foreach(lib ${SYSTEM_LIBS})
+    install(FILES ${lib} DESTINATION mini/bin/win64)
+endforeach()
