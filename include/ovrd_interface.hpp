@@ -1,6 +1,6 @@
 #pragma once
 
-#include "openvr_driver.h"
+#include "define.hpp"
 #include "device_provider.hpp"
 
 #ifdef _WIN32

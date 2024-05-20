@@ -1,10 +1,22 @@
 cmake_minimum_required(VERSION 3.10)
 project(MINI_OpenVR_Driver CXX)
 
+# set(CMAKE_TOOLCHAIN_FILE "D:/workspace/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
 set(CMAKE_CXX_STANDARD 17)
 if(MSVC)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 endif(MSVC)
+
+# set(OPENVR_LIB_DIR ${CMAKE_SOURCE_DIR}/external/openvr/lib/win64 CACHE STRING "OpenVR .lib directory")
+# set(OPENVR_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/openvr/headers CACHE STRING "OpenVR include directory")
+# set(OPENVR_IMPLEMENTATION_DIR ${CMAKE_SOURCE_DIR}/external/openvr/bin/win64 CACHE STRING "OpenVR implementation (dll, so, dylib)")
+
+set(OPENVR_LIB_DIR C:/msys64/ucrt64/lib CACHE STRING "OpenVR .lib directory")
+set(OPENVR_INCLUDE_DIR C:/msys64/ucrt64/include CACHE STRING "OpenVR include directory")
+set(OPENVR_IMPLEMENTATION_DIR C:/msys64/ucrt64/bin CACHE STRING "OpenVR implementation (dll, so, dylib)")
+
+# find_library(OPENVR_LIB NAMES openvr_api)
 
 # Driver DLL
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -13,10 +25,17 @@ add_library(mini SHARED ${SOURCES};${HEADERS})
 target_compile_features(mini PRIVATE cxx_std_17)
 target_compile_definitions(mini PUBLIC -D_EXPORT)
 target_include_directories(mini PRIVATE include/)
+target_include_directories(mini PRIVATE ${OPENVR_INCLUDE_DIR})
+target_link_libraries(mini ${OPENVR_LIB_DIR}/libopenvr_api.a)
 set_target_properties(mini PROPERTIES PREFIX "driver_")
 
 # installer stuff
 install(TARGETS mini
+	DESTINATION mini/bin/win64
+	COMPONENT driver)
+
+install(FILES
+	${OPENVR_IMPLEMENTATION_DIR}/libopenvr_api.dll
 	DESTINATION mini/bin/win64
 	COMPONENT driver)
 

@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "openvr_driver.h"
+#include "define.hpp"
 #include "device_hmd.hpp"
 
 class CTrackedDeviceProvider: public vr::IServerTrackedDeviceProvider

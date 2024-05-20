@@ -1,6 +1,6 @@
 #pragma once
 
-#include "openvr_driver.h"
+#include "define.hpp"
 #include <thread>
 
 class CDeviceDriver_Hmd: public vr::ITrackedDeviceServerDriver, public vr::IVRDisplayComponent
@@ -22,7 +22,7 @@ public:
     virtual void GetEyeOutputViewport( vr::EVREye eEye, uint32_t *pnX, uint32_t *pnY, uint32_t *pnWidth, uint32_t *pnHeight ) override final;
     virtual void GetProjectionRaw( vr::EVREye eEye, float *pfLeft, float *pfRight, float *pfTop, float *pfBottom ) override final;
     virtual vr::DistortionCoordinates_t ComputeDistortion( vr::EVREye eEye, float fU, float fV ) override final;
-
+    virtual bool ComputeInverseDistortion( vr::HmdVector2_t *pResult, vr::EVREye eEye, uint32_t unChannel, float fU, float fV ) override final;
     void RunFrame();
 
 private:

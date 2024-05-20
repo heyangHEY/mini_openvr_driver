@@ -150,6 +150,11 @@ vr::DistortionCoordinates_t CDeviceDriver_Hmd::ComputeDistortion( vr::EVREye eEy
     return coordinates;
 }
 
+bool CDeviceDriver_Hmd::ComputeInverseDistortion( vr::HmdVector2_t *pResult, vr::EVREye eEye, uint32_t unChannel, float fU, float fV )
+{
+    return false;
+}
+
 void CDeviceDriver_Hmd::RunFrame()
 {
     if(m_tracked_device_index != vr::k_unTrackedDeviceIndexInvalid)
