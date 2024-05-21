@@ -1,0 +1,173 @@
+vrserver[vrserver] watchdogs enabled
+vrserverCSharedResourceNamespaceServer starting up
+vrserverSet thread FFFFFFFFFFFFFFFE priority to: 1
+vrserverWaitNamedPipe SteamVR_Namespace failed because no one is listening at that name (Error 0x00000000)
+vrserverCSharedResourceNamespaceClient::Init(): failed connect
+vrserverCSharedResourceNamespaceClient::Init(): still waiting for vrserver to reply with namespace data
+vrserverSet thread FFFFFFFFFFFFFFFE priority to: -15
+vrserverConnecting client (SteamVR_Namespace) app container status: 1
+vrserverCSharedResourceNamespaceServer sent namespace data: 33500
+vrserverClient (SteamVR_Namespace) app container state: 1
+vrserverConnecting client (SteamVR_Namespace) app container status: 1
+vrserverCSharedResourceNamespaceServer sent namespace data: 33500
+vrserverClosing pipe SteamVR_Namespace because it was broken from the other end
+vrserverCSharedResourceNamespaceClient::Init(): received namespace data 33500
+vrserverSelf queried namespace: 33500
+vrserver[Init] VR server 2.5.5 (v1715637367) starting up with config=C:\Program Files (x86)\Steam\config
+vrserver[Init] VRServer will wait for VRMonitor before exiting
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\htc\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\lighthouse\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\null\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\vrlink\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from D:\workspace\mini_openvr_driver\install\mini\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\settings\default.vrsettings
+vrserver[Settings] Load Json Settings from C:\Program Files (x86)\Steam\config\steamvr.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\vrlink\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\htc\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\lighthouse\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from D:\workspace\mini_openvr_driver\install\mini\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\null\resources\settings\default.vrsettings
+vrserver[Settings] Load Default Json Settings from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\settings\default.vrsettings
+vrserver[Settings] Load Json Settings from C:\Program Files (x86)\Steam\config\steamvr.vrsettings
+vrserverC:\Program Files (x86)\Steam\config\steamapps.vrmanifest - App steam.app.804530 was already described in manifest C:\Program Files (x86)\Steam\config\steamapps.vrmanifest. Skipping
+vrserver[Remapping] Loading automap templates.
+vrserver[Controller Setup] Adding controller type vive
+vrserver[Controller Setup] Adding controller type rift
+vrserver[Controller Setup] Adding controller type indexhmd
+vrserver[Controller Setup] CreateHMDControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_hmd_profile.json' because driver 'holographic' isn't present.
+vrserver[Remapping] Setting up device remapping for controller type: vive_controller.
+vrserver[Controller Setup] Adding controller type vive_controller
+vrserver[Remapping] Setting up device remapping for controller type: oculus_touch.
+vrserver[Controller Setup] Adding controller type oculus_touch
+vrserver[Remapping] Setting up device remapping for controller type: knuckles.
+vrserver[Controller Setup] Adding controller type knuckles
+vrserver[Controller Setup] CreateControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_controller_profile.json' because driver 'holographic' isn't present.
+vrserver[Controller Setup] CreateControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_hpcontroller_profile.json' because driver 'holographic' isn't present.
+vrserver[Controller Setup] Adding controller type khr_simple_controller
+vrserver[Controller Setup] Adding controller type gamepad
+vrserverAdd Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+vrserverAdd Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+vrserverAdd Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+vrserverAdd Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+vrserverAdd Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+vrserverWeb language is schinese
+vrserver[Web] Starting web server on port 27062
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-black-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-black-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-black.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-bold-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-extrabold-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-extrabold.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-light-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-light.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-medium-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-medium.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-regular-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-thin-italic.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans-thin.ttf.
+vrserverCaching webfont C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\webinterface\fonts\motiva-sans.ttf.
+vrserverConnecting client (VR_ServerPipe_33500) app container status: 1
+vrserverNew Connect message from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win32\vrstartup.exe (VRApplication_Bootstrapper) (Args: ) 33012 
+vrserverCreating Builtin AppInfo for C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win32\vrstartup.exe (VRApplication_Bootstrapper). steam.overlay.250820, , 33012
+vrserverAppInfoManager.ProcessConnected BEGIN 33012 C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win32\vrstartup.exe 7 steam.overlay.250820
+vrserverSetApplicationPid appkey=steam.overlay.250820 pid=33012, external transition
+vrserverSetApplicationPid: Setting app steam.overlay.250820 PID to 33012
+vrserverAppInfoManager.ProcessConnected END
+vrserver[Input] Enabling legacy input for steam.overlay.250820
+vrserverSuccesfully turned IGNORE_TIMER_RESOLUTION throttling off.
+vrservervrlink: SVLDriver::Init()
+vrserver  driver vrlink implements interfaces IVRSettings_003 ITrackedDeviceServerDriver_005 IVRDisplayComponent_003 IVRDriverDirectModeComponent_009 IVRCameraComponent_003 IServerTrackedDeviceProvider_004 IVRWatchdogProvider_001 IVRVirtualDisplay_002 IVRDriverManager_001 IVRResources_001 IVRCompositorPluginProvider_001 IVRIPCResourceManagerClient_001 
+vrserverLoaded server driver vrlink (IServerTrackedDeviceProvider_004) from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\vrlink\bin\win64\driver_vrlink.dll
+vrserverDriver vrlink has no suitable devices.
+vrserverlighthouse: version 2.5.5
+vrserverlighthouse: [DepthAugmentedPassthrough] supported on this system: 1
+vrserverlighthouse: [DepthAugmentedPassthrough] : Object is created 
+vrserverlighthouse: Add Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+vrserverlighthouse: Add Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+vrserverlighthouse: Add Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+vrserverlighthouse: Add Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+vrserverlighthouse: Add Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+vrserverlighthouse: Attached HID Devices:
+vrserverlighthouse:     No devices
+vrserver  driver lighthouse implements interfaces IVRSettings_003 ITrackedDeviceServerDriver_005 IVRDisplayComponent_003 IVRDriverDirectModeComponent_009 IVRCameraComponent_003 IServerTrackedDeviceProvider_004 IVRWatchdogProvider_001 IVRVirtualDisplay_002 IVRDriverManager_001 IVRResources_001 IVRCompositorPluginProvider_001 IVRIPCResourceManagerClient_001 
+vrserverLoaded server driver lighthouse (IServerTrackedDeviceProvider_004) from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\lighthouse\bin\win64\driver_lighthouse.dll
+vrserverDriver lighthouse has no suitable devices.
+vrservervrlink: SVLRoot::SVLRoot() Parsing Data
+vrservervrlink: SVLRoot::SVLRoot() sReqEncMode = mid
+vrservervrlink: SVLRoot::SVLRoot() Parsing Arg (0)
+vrservervrlink: SVLRoot::SVLRoot() Arg Parsed
+vrserverDriver 'mini' started activation of tracked device with serial number '1024'
+vrserver  driver mini implements interfaces IVRSettings_003 ITrackedDeviceServerDriver_005 IVRDisplayComponent_003 IVRDriverDirectModeComponent_009 IVRCameraComponent_003 IServerTrackedDeviceProvider_004 IVRWatchdogProvider_001 IVRVirtualDisplay_002 IVRDriverManager_001 IVRResources_001 IVRCompositorPluginProvider_001 IVRIPCResourceManagerClient_001 
+vrserverLoaded server driver mini (IServerTrackedDeviceProvider_004) from D:\workspace\mini_openvr_driver\install\mini\bin\win64\driver_mini.dll
+vrserverActive HMD set to mini.1024
+vrserverInitialized EyeToHead Left Translation -0.000000 0.000000 0.000000 
+vrserverInitialized EyeToHead Right Translation 0.000000 0.000000 0.000000 
+vrservervrlink: Soft AES PERF: 21.720243 MByte/s
+vrserverSet thread 0000000000001474 priority to: 15
+vrserver[Controller Setup] Adding controller type mini_hmd
+vrserverDriver 'mini' finished adding tracked device with serial number '1024'
+vrservervrlink: Intel IPSEC AES PERF: 961.538452 MByte/s
+vrservervrlink: OpenSSL AES PERF: 195.694717 MByte/s
+vrserveroculus: version 2.5.5
+vrserver  driver oculus implements interfaces IVRSettings_003 ITrackedDeviceServerDriver_005 IVRDisplayComponent_003 IVRDriverDirectModeComponent_009 IVRCameraComponent_003 IServerTrackedDeviceProvider_004 IVRWatchdogProvider_001 IVRVirtualDisplay_002 IVRDriverManager_001 IVRResources_001 IVRCompositorPluginProvider_001 IVRIPCResourceManagerClient_001 
+vrserverLoaded server driver oculus (IServerTrackedDeviceProvider_004) from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\oculus\bin\win64\driver_oculus.dll
+vrserver  driver oculus_legacy implements interfaces IVRSettings_003 ITrackedDeviceServerDriver_005 IVRDisplayComponent_003 IVRDriverDirectModeComponent_009 IVRCameraComponent_003 IServerTrackedDeviceProvider_004 IVRWatchdogProvider_001 IVRVirtualDisplay_002 IVRDriverManager_001 IVRResources_001 IVRCompositorPluginProvider_001 IVRIPCResourceManagerClient_001 
+vrserverLoaded server driver oculus_legacy (IServerTrackedDeviceProvider_004) from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\oculus_legacy\bin\win64\driver_oculus_legacy.dll
+vrserverNot loading driver gamepad because it was blocked by a previous safe mode event
+vrserverNot loading driver null because it is disabled in settings
+vrserver[Remapping] Setting up device remapping for controller type: knuckles.
+vrserver[Remapping] Parsing remapping data succeeded for controller type: knuckles.
+vrserver[Remapping] Setting up device remapping for controller type: oculus_touch.
+vrserver[Remapping] Parsing remapping data succeeded for controller type: oculus_touch.
+vrserver[Remapping] Setting up device remapping for controller type: vive_controller.
+vrservervrlink: Soft AES PERF: 21.834061 MByte/s
+vrserver[Remapping] Parsing remapping data succeeded for controller type: vive_controller.
+vrserverProcessing message VRMsg_Connect from 33012: vrstartup took 0.0555 seconds
+vrservervrlink: Intel IPSEC AES PERF: 980.392151 MByte/s
+vrservervrlink: OpenSSL AES PERF: 196.463654 MByte/s
+vrservervrlink: UDP Driver
+vrservervrlink: Active Data Links: m_pLink:000001A6ADE9BA60 pTcpLink:0000000000000000 pUdpLink:000001A6ADE9BA60 p8814Link:0000000000000000
+vrservervrlink: SVLDataLink::HandleFECChange( 16 )
+vrservervrlink: SVLServer::SVLServer(...)
+vrservervrlink: SVLAudioWSAPI::SVLAudioWSAPI(...)
+vrservervrlink: SVLHMDDriverD3D11::SVLHMDDriverD3D11() C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\vrlink\resources\
+vrservervrlink: SVLCryptWindows CryptAcquireContext succeeded for generation.
+vrservervrlink: SVLDataLink::InitCrypt(...,55,1)
+vrservervrlink: SVLDataLink::InitCrypt() m_TransportMode = 1 // 1017
+vrservervrlink: Starting session with ID: 01cc83d2
+vrservervrlink: SVLDataLinkUDP::Disconnect()
+vrserver[Input] steam.overlay.250820 (mini_hmd) attempting to load default config from file:///C:/Program%20Files%20%28x86%29/Steam/steamapps/common/SteamVR/resources/config/legacy_bindings_generic_hmd.json
+vrserverRead chaperone JSON from C:\Program Files (x86)\Steam\config\chaperone_info.vrchap
+vrserverFound universe 2 in chaperone file
+vrservervrlink: SVLDataLinkUDP: Found available QOS service! (Socket creation = 5352)
+vrservervrlink: Socket bound to port 10400
+vrservervrlink: SVLDataLinkUDP: WSAIoctl failed with 10022
+vrservervrlink: SVLDataLinkUDP::Reconnect() Joining Thread 0000000000000000
+vrservervrlink: Set thread FFFFFFFFFFFFFFFE priority to: 15
+vrservervrlink: SVLDataLinkUDP::Reconnect() Thread Create Complete
+vrservervrlink: Data Link Startup with Options: nTimedRetryOption = 1, nQoSOption = 0
+vrservervrlink: Listening for incoming control connections on 10440 via socket 5360
+vrserverInvalid input type click for controller (/user/head/proximity)
+vrserverDetermined this is a legacy app.
+vrserver[Workshop] Successfully loaded binding file 'C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\config\legacy_bindings_generic_hmd.json' for app 'steam.overlay.250820'.
+vrserverAUDIO: Refreshing audio devices
+vrserverAUDIO: Detected 26 playback and 25 record devices
+vrserver[Steam] Steam INIT.
+vrserver[Steam] Steam API available
+vrserver[Steam] Steam user logged in
+vrserverTue May 21 2024 08:54:34.309 [Info] - Connecting client (SteamVR_Namespace) app container status: 1
+vrserverTue May 21 2024 08:54:34.310 [Info] - CSharedResourceNamespaceServer sent namespace data: 33500
+vrserverTue May 21 2024 08:54:34.321 [Info] - Connecting client (VR_ServerPipe_33500) app container status: 1
+vrserverTue May 21 2024 08:54:34.321 [Info] - New Connect message from C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe (VRApplication_Background) (Args: ) 29252 
+vrserverTue May 21 2024 08:54:34.329 [Info] - AppInfoManager.ProcessConnected BEGIN 29252 C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe 3 openvr.component.vrcompositor
+vrserverTue May 21 2024 08:54:34.335 [Info] - SetApplicationPid appkey=openvr.component.vrcompositor pid=29252, external transition
+vrserverTue May 21 2024 08:54:34.335 [Info] - SetApplicationPid: Setting app openvr.component.vrcompositor PID to 29252
+vrserverTue May 21 2024 08:54:34.335 [Info] - AppInfoManager.ProcessConnected END
+vrserverTue May 21 2024 08:54:34.336 [Info] - [Input] openvr.component.vrcompositor (mini_hmd) attempting to load default config from file:///C:/Program%20Files%20%28x86%29/Steam/steamapps/common/SteamVR/resources/config/vrcompositor_bindings_generic_hmd.json
+vrserverTue May 21 2024 08:54:34.336 [Info] - Using existing HMD mini.1024
+vrserverTue May 21 2024 08:54:34.337 [Info] - Processing message VRMsg_Connect from 29252: vrcompositor took 0.0157 seconds
+vrserverTue May 21 2024 08:54:34.352 [Info] - Connecting client (SteamVR_Namespace) app container status: 1
+vrserverTue May 21 2024 08:54:34.352 [Info] - CSharedResourceNamespaceServer sent namespace data: 33500
+vrserverTue May 21 2024 08:54:34.889 [Info] - [Settings] Save Json Settings to C:\Program Files (x86)\Steam\config\steamvr.vrsettings
+vrserverTue May 21 2024 08:54:35.482 [Info] - Exception c0000005
+Type a command

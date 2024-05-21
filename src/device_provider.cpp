@@ -1,8 +1,10 @@
 #include "device_provider.hpp"
+#include "logger.hpp"
 
 vr::EVRInitError CTrackedDeviceProvider::Init(vr::IVRDriverContext *pDriverContext)
 {
     VR_INIT_SERVER_DRIVER_CONTEXT(pDriverContext);
+    LOG_I("CTrackedDeviceProvider::Init()");
 
     m_pHmd = std::make_unique<CDeviceDriver_Hmd>();
     vr::VRServerDriverHost()->TrackedDeviceAdded("1024", vr::TrackedDeviceClass_HMD, m_pHmd.get()); // hmd serial number
@@ -11,11 +13,13 @@ vr::EVRInitError CTrackedDeviceProvider::Init(vr::IVRDriverContext *pDriverConte
 
 void CTrackedDeviceProvider::Cleanup()
 {
+    LOG_I("CTrackedDeviceProvider::Cleanup()");
     m_pHmd = nullptr;
 }
 
 void CTrackedDeviceProvider::RunFrame()
 {
+    LOG_I("CTrackedDeviceProvider::RunFrame()");
     if(m_pHmd)
     {
         m_pHmd->RunFrame();

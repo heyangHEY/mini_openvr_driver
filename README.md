@@ -24,3 +24,7 @@ add:
     "blocked_by_safe_mode" : false
 }
 ```
+
+### TODO
+将未解决的问题记录在 Unresolved Issues 下：
+1. 在 win11、msys2、ucrt64、pacman 的环境下编译 openvr 驱动，并让 steamvr 正常加载和运行。

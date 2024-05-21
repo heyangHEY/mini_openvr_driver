@@ -1,13 +1,16 @@
 #include "device_hmd.hpp"
 #include <string.h>
+#include "logger.hpp"
 
 CDeviceDriver_Hmd::CDeviceDriver_Hmd()
 {
+    LOG_I("CDeviceDriver_Hmd::CDeviceDriver_Hmd()");
     vr::VRSettings()->SetFloat(vr::k_pch_SteamVR_Section, vr::k_pch_SteamVR_IPD_Float, static_cast<float>(0.0f));
 }
 
 vr::EVRInitError CDeviceDriver_Hmd::Activate( uint32_t unObjectId )
 {
+    LOG_I("CDeviceDriver_Hmd::Activate()");
     m_tracked_device_index = unObjectId;
     m_property_container = vr::VRProperties()->TrackedDeviceToPropertyContainer(m_tracked_device_index);
     vr::VRProperties()->SetStringProperty(m_property_container, vr::Prop_SerialNumber_String, "1024");
@@ -25,6 +28,7 @@ vr::EVRInitError CDeviceDriver_Hmd::Activate( uint32_t unObjectId )
 // 当VR系统从这个Hmd切换到另一个Hmd作为活动显示时调用，驱动程序应在被停用时清理尽可能多的内存和线程使用。
 void CDeviceDriver_Hmd::Deactivate()
 {
+    LOG_I("CDeviceDriver_Hmd::Deactivate()");
     m_tracked_device_index = vr::k_unTrackedDeviceIndexInvalid;
 }
 
@@ -34,6 +38,7 @@ void CDeviceDriver_Hmd::EnterStandby() {}
 // 请求驱动程序的组件接口，用于设备特定的功能。
 void *CDeviceDriver_Hmd::GetComponent( const char *pchComponentNameAndVersion )
 {
+    LOG_I("CDeviceDriver_Hmd::GetComponent()");
     // strcmp 区分大小写
     // stricmp 非标准函数，不区分大小写
     // if(strcmp(pchComponentNameAndVersion, vr::IVRDisplayComponent_Version) == 0)
@@ -47,6 +52,7 @@ void *CDeviceDriver_Hmd::GetComponent( const char *pchComponentNameAndVersion )
 // VR客户端已向驱动程序提出此调试请求。
 void CDeviceDriver_Hmd::DebugRequest( const char *pchRequest, char *pchResponseBuffer, uint32_t unResponseBufferSize )
 {
+    LOG_I("CDeviceDriver_Hmd::DebugRequest()");
     if(unResponseBufferSize >= 1)
     {
         pchResponseBuffer[0] = 0;
@@ -55,6 +61,7 @@ void CDeviceDriver_Hmd::DebugRequest( const char *pchRequest, char *pchResponseB
 
 vr::DriverPose_t CDeviceDriver_Hmd::GetPose()
 {
+    LOG_I("CDeviceDriver_Hmd::GetPose()");
     vr::DriverPose_t t = {0};
     t.poseIsValid = true;
     t.deviceIsConnected = true;
@@ -68,6 +75,7 @@ vr::DriverPose_t CDeviceDriver_Hmd::GetPose()
 // 获取VR显示窗口的大小和位置
 void CDeviceDriver_Hmd::GetWindowBounds( int32_t *pnX, int32_t *pnY, uint32_t *pnWidth, uint32_t *pnHeight )
 {
+    LOG_I("CDeviceDriver_Hmd::GetWindowBounds()");
     // hmd 插入 pc 后，为拓展屏，在显示设置中，将拓展屏调整到主屏合适的位置。
     // offset 为 拓展屏原点 相对于 主屏原点 的偏移。定义“屏幕原点”为“屏幕左上角第一个像素”，主屏原点坐标为 [0, 0]。
     // 假设：主屏右边为拓展屏，主屏分辨率为 1920*1080，拓展屏为 Side by side 模式，3840*1080，则：
@@ -80,18 +88,21 @@ void CDeviceDriver_Hmd::GetWindowBounds( int32_t *pnX, int32_t *pnY, uint32_t *p
 // 判断VR显示是否在桌面上扩展
 bool CDeviceDriver_Hmd::IsDisplayOnDesktop()
 {
+    LOG_I("CDeviceDriver_Hmd::IsDisplayOnDesktop()");
     return true;
 }
 
 // 判断VR显示是否为真实显示，而非虚构显示
 bool CDeviceDriver_Hmd::IsDisplayRealDisplay()
 {
+    LOG_I("CDeviceDriver_Hmd::IsDisplayRealDisplay()");
     return true;
 }
 
 // 获取建议的渲染目标大小
 void CDeviceDriver_Hmd::GetRecommendedRenderTargetSize( uint32_t *pnWidth, uint32_t *pnHeight )
 {
+    LOG_I("CDeviceDriver_Hmd::GetRecommendedRenderTargetSize()");
     *pnWidth = 3840; // 3840 * 1.4 = 5376
     *pnHeight = 1080; // 1080 * 1.4 = 1512
 }
@@ -99,6 +110,7 @@ void CDeviceDriver_Hmd::GetRecommendedRenderTargetSize( uint32_t *pnWidth, uint3
 // 获取帧缓冲区中的视口，以绘制失真输出。
 void CDeviceDriver_Hmd::GetEyeOutputViewport( vr::EVREye eEye, uint32_t *pnX, uint32_t *pnY, uint32_t *pnWidth, uint32_t *pnHeight )
 {
+    LOG_I("CDeviceDriver_Hmd::GetEyeOutputViewport()");
     // left: eEye = 0; right eEye = 1
     // 设置左右眼的视口矩阵参数
     // 比如，若拓展屏为 3840*1080，SBS模式：左半边显示左眼的内容，右半边显示右眼的内容。则:
@@ -122,6 +134,7 @@ void CDeviceDriver_Hmd::GetEyeOutputViewport( vr::EVREye eEye, uint32_t *pnX, ui
 // 获取构建自定义投影矩阵所需的组件，这在应用程序需要进行一些特殊操作（如无限Z）时非常有用
 void CDeviceDriver_Hmd::GetProjectionRaw( vr::EVREye eEye, float *pfLeft, float *pfRight, float *pfTop, float *pfBottom )
 {
+    LOG_I("CDeviceDriver_Hmd::GetProjectionRaw()");
     if(eEye == vr::Eye_Left)
     {
         *pfLeft     = static_cast<float>(-0.299042533);
@@ -140,6 +153,7 @@ void CDeviceDriver_Hmd::GetProjectionRaw( vr::EVREye eEye, float *pfLeft, float 
 // 计算指定眼睛和输入UV的失真函数结果。UV从该眼的视口的左上角的0,0开始，到右下角的1,1结束
 vr::DistortionCoordinates_t CDeviceDriver_Hmd::ComputeDistortion( vr::EVREye eEye, float fU, float fV )
 {
+    LOG_I("CDeviceDriver_Hmd::ComputeDistortion()");
     vr::DistortionCoordinates_t coordinates;
     coordinates.rfBlue[0] = fU;
     coordinates.rfBlue[1] = fV;
@@ -152,11 +166,13 @@ vr::DistortionCoordinates_t CDeviceDriver_Hmd::ComputeDistortion( vr::EVREye eEy
 
 bool CDeviceDriver_Hmd::ComputeInverseDistortion( vr::HmdVector2_t *pResult, vr::EVREye eEye, uint32_t unChannel, float fU, float fV )
 {
+    LOG_I("CDeviceDriver_Hmd::ComputeInverseDistortion()");
     return false;
 }
 
 void CDeviceDriver_Hmd::RunFrame()
 {
+    LOG_I("CDeviceDriver_Hmd::RunFrame()");
     if(m_tracked_device_index != vr::k_unTrackedDeviceIndexInvalid)
     {
         vr::VRServerDriverHost()->TrackedDevicePoseUpdated(m_tracked_device_index, GetPose(), sizeof(vr::DriverPose_t));

@@ -1,20 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-
-# 必须放在project()之前，不然只会找到ucrt64下的库，或者编译时换成
-# $ cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_INSTALL_PREFIX=./install -DCMAKE_TOOLCHAIN_FILE=/d/workspace/vcpkg/scripts/buildsystems/vcpkg.cmake
-set(CMAKE_TOOLCHAIN_FILE "D:/workspace/vcpkg/scripts/buildsystems/vcpkg.cmake")
-
 project(MINI_OpenVR_Driver CXX)
-
-if(BUILD_TYPE MATCHES Debug)
-    message("Building Debug")
-	set(VCPKG_INSTALLED_DIR "D:/workspace/vcpkg/installed/x64-windows/debug/bin")
-elseif(BUILD_TYPE MATCHES Release)
-    message("Building Release")
-	set(VCPKG_INSTALLED_DIR "D:/workspace/vcpkg/installed/x64-windows/bin")
-else()
-    message("Building ${BUILD_TYPE}")
-endif()
 
 set(CMAKE_CXX_STANDARD 17)
 if(MSVC)
@@ -54,7 +39,7 @@ install(TARGETS test_spdlog
 	DESTINATION mini/bin/win64)
 install(CODE "
     include(BundleUtilities)
-    fixup_bundle(\"${CMAKE_INSTALL_PREFIX}/mini/bin/win64/test_spdlog.exe\" \"\" \"${VCPKG_INSTALLED_DIR}\")
+    fixup_bundle(\"${CMAKE_INSTALL_PREFIX}/mini/bin/win64/test_spdlog.exe\" \"\" \"/ucrt64/bin\")
 " COMPONENT Runtime)
 
 install(FILES
