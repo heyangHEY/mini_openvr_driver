@@ -1,4 +1,4 @@
-﻿#include "logger.hpp"
+#include "logger.hpp"
 
 std::shared_ptr<spdlog::logger> logger;
 
@@ -19,6 +19,8 @@ void build_logger(const std::string &logger_name, const std::string &logger_leve
 		// Handle exceptions
 		std::cerr << "error: Logger initialization failed: " << ex.what() << std::endl;
 	}
+
+	assert(logger.get() != nullptr, "Pointer[logger.get()] is nullptr.");
 
 	// Set the logger format
 	// %Y-%m-%d %H:%M:%S.%e: 年-月-日 时:分:秒.毫秒 
@@ -42,7 +44,7 @@ void build_logger(const std::string &logger_name, const std::string &logger_leve
 
 std::shared_ptr<spdlog::logger> get_logger()
 {
-	assert(logger.get() != nullptr);
+	assert(logger.get() != nullptr, "Pointer[logger.get()] is nullptr.");
 	return logger;
 }
 

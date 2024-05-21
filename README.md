@@ -28,3 +28,7 @@ add:
 ### TODO
 将未解决的问题记录在 Unresolved Issues 下：
 1. 在 win11、msys2、ucrt64、pacman 的环境下编译 openvr 驱动，并让 steamvr 正常加载和运行。
+
+### 注意
+如果在 windows 上打开工程，请将工程设置为 CRLF 格式，而不是 LF 格式，防止代码中的中文注释影响编译。
+参考：Unresolved Issues\test_utf8_and_LF\readme.md
