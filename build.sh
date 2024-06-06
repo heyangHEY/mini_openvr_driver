@@ -21,5 +21,5 @@ cmake --build build --config $BUILD_TYPE
 cmake --install build --config $BUILD_TYPE
 
 # # 如何使用该脚本
-# chmod +x build_project.sh
-# ./build_project.sh Release
+# chmod +x build.sh
+# ./build.sh Release

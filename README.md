@@ -1,4 +1,10 @@
 # mini_openvr_driver
+### 编译
+```
+chmod +x build.sh
+./build.sh Release
+```
+
 ### MSVC
 ```
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_INSTALL_PREFIX=./install
@@ -6,7 +12,7 @@ cmake --build build --config Release
 cmake --install build --config Release
 ```
 
-### vrpath
+### vrpath, 将该openvr驱动添加到steamvr搜索路径中
 C:\Users\xx\AppData\Local\openvr\openvrpaths.vrpath
 add:
 ```
