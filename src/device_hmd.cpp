@@ -1,6 +1,6 @@
 #include "device_hmd.hpp"
 #include <string.h>
-#include "logger.hpp"
+#include "log/logger.hpp"
 
 CDeviceDriver_Hmd::CDeviceDriver_Hmd()
 {

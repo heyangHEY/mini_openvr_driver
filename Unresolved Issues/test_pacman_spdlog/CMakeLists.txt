@@ -17,9 +17,11 @@ endfunction()
 find_package(spdlog CONFIG REQUIRED)
 check_package(spdlog)
 
-add_executable(test_spdlog src/test_spdlog.cpp src/logger.cpp include/logger.hpp)
+add_subdirectory(auxiliary)
+
+add_executable(test_spdlog src/test_spdlog.cpp)
 target_include_directories(test_spdlog PRIVATE include/)
-target_link_libraries(test_spdlog PRIVATE spdlog::spdlog)
+target_link_libraries(test_spdlog PRIVATE aux_log)
 
 # Driver DLL
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -28,7 +30,7 @@ add_library(mini SHARED ${SOURCES};${HEADERS})
 target_compile_features(mini PRIVATE cxx_std_17)
 target_compile_definitions(mini PUBLIC -D_EXPORT)
 target_include_directories(mini PRIVATE include/)
-target_link_libraries(mini PRIVATE spdlog::spdlog)
+target_link_libraries(mini PRIVATE aux_log)
 set_target_properties(mini PROPERTIES PREFIX "driver_")
 
 # installer stuff

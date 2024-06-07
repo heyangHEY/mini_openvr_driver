@@ -31,19 +31,34 @@ endfunction()
 
 find_package(spdlog CONFIG REQUIRED)
 check_package(spdlog)
+find_package(
+	OpenCV REQUIRED
+)
+check_package(OpenCV)
 
-add_executable(test_spdlog src/test_spdlog.cpp src/logger.cpp include/logger.hpp)
+add_subdirectory(auxiliary)
+
+add_executable(test_spdlog src/test_spdlog.cpp)
 target_include_directories(test_spdlog PRIVATE include/)
-target_link_libraries(test_spdlog PRIVATE spdlog::spdlog)
+target_link_libraries(test_spdlog PRIVATE aux_log)
+
+add_executable(test_drv_aruco_with_webcamera src/test_drv_aruco_with_webcamera.cpp)
+target_include_directories(test_drv_aruco_with_webcamera PRIVATE include/)
+target_link_libraries(test_drv_aruco_with_webcamera PRIVATE aux_log ${OpenCV_LIBS} aux_aruco)
 
 # Driver DLL
-file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE SOURCES 
+	src/device_aruco.cpp
+	src/device_hmd.cpp
+	src/device_provider.cpp
+	src/ovrd_interface.cpp
+)
 file(GLOB_RECURSE HEADERS include/*.hpp)
 add_library(mini SHARED ${SOURCES};${HEADERS})
 target_compile_features(mini PRIVATE cxx_std_17)
 target_compile_definitions(mini PUBLIC -D_EXPORT)
 target_include_directories(mini PRIVATE include/)
-target_link_libraries(mini PRIVATE spdlog::spdlog)
+target_link_libraries(mini PRIVATE aux_log ${OpenCV_LIBS} aux_aruco)
 set_target_properties(mini PROPERTIES PREFIX "driver_")
 
 # installer stuff
@@ -55,6 +70,13 @@ install(TARGETS test_spdlog
 install(CODE "
     include(BundleUtilities)
     fixup_bundle(\"${CMAKE_INSTALL_PREFIX}/mini/bin/win64/test_spdlog.exe\" \"\" \"${VCPKG_INSTALLED_DIR}\")
+" COMPONENT Runtime)
+
+install(TARGETS test_drv_aruco_with_webcamera
+	DESTINATION mini/bin/win64)
+install(CODE "
+    include(BundleUtilities)
+    fixup_bundle(\"${CMAKE_INSTALL_PREFIX}/mini/bin/win64/test_drv_aruco_with_webcamera.exe\" \"\" \"${VCPKG_INSTALLED_DIR}\")
 " COMPONENT Runtime)
 
 install(FILES

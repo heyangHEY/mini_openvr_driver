@@ -1,0 +1,6 @@
+# 设置 .cpp 和 .hpp 文件使用 CRLF 行结束符
+*.cpp text eol=crlf
+*.hpp text eol=crlf
+
+# 其他文件保持Git默认行为，不强制修改行结束符
+* text=auto

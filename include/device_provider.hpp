@@ -4,6 +4,7 @@
 
 #include "define.hpp"
 #include "device_hmd.hpp"
+#include "device_aruco.hpp"
 
 class CTrackedDeviceProvider: public vr::IServerTrackedDeviceProvider
 {
@@ -20,4 +21,5 @@ public:
 
 private:
     std::unique_ptr<CDeviceDriver_Hmd> m_pHmd;
+    std::shared_ptr<CDeviceDriver_Aruco> m_pAruco;
 };
